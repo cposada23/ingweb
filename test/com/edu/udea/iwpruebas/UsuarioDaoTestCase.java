@@ -91,9 +91,10 @@ public class UsuarioDaoTestCase {
 		String cedula = "333";
 		try {
 			usuario = dao.obtenerPorCedula(cedula);
-			fail("No se deberia encontrar un usuario con esa cedula");
+			assertTrue(usuario == null);
+			
 		} catch (MyDaoExeption e) {
-			assertTrue(true);
+			fail("No se deberia encontrar un usuario con esa cedula");
 		}
 		
 	}

@@ -10,11 +10,25 @@ import com.edu.udea.iw.exeption.MyDaoExeption;
 
 public interface UsuarioBL {
 	
+ /**
+  * Valida el usuario y la contraseña en la base de datos
+  * @param cedula
+  * @param pws
+  * @return
+  * @throws MyDaoExeption
+  */
+	public boolean validarUP(String cedula, String pws) throws MyDaoExeption;
+	
+	
 	/**
-	 * Valida el usuario y la contraseña en la base de datos
-	 * @param usuario
-	 * @param pws
-	 * @return
+	 * creacion de un nuevo investigador 
+	 * @param cedula
+	 * @param nombre
+	 * @param apellidos
+	 * @param contrasena
+	 * @param email
+	 * @param rol
+	 * @throws MyDaoExeption
 	 */
-	public boolean validarUP(String usuario, String pws) throws MyDaoExeption;
+	public void crearInvestigador(String cedula, String nombre, String apellidos, String contrasena, String email) throws MyDaoExeption;
 }

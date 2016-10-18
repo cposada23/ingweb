@@ -48,9 +48,7 @@ private SessionFactory sessionFactory;
 		try {
 			session = sessionFactory.openSession();
 			usuario = (Usuario) session.get(Usuario.class, cedula);
-			if(usuario == null){
-				throw new MyDaoExeption("Usuario no encontrado", null);
-			}
+			
 			return usuario;
 		} catch (HibernateException  e) {
 			throw new MyDaoExeption("Usuario no encontrado", null);

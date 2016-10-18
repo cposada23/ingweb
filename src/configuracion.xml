@@ -59,6 +59,13 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="usuarioBL" class="com.edu.udea.iw.logicaNegocio.imp.UsuarioBLimp">
+		<property name="dao" ref="usuarioDao"></property>
+	</bean>
+	
+	
+	
+	
 
 	
 </beans>
