@@ -15,7 +15,7 @@ import com.edu.udea.iw.exeption.MyDaoExeption;
 public class UsuarioDaoImpHibernate implements UsuarioDao {
 
 	
-	private SessionFactory sessionFactory; 
+private SessionFactory sessionFactory; 
 	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -38,6 +38,56 @@ public class UsuarioDaoImpHibernate implements UsuarioDao {
 		}
 		
 		return usuarios;
+	}
+
+	@Override
+	public Usuario obtenerPorCedula(String cedula) throws MyDaoExeption {
+		Session session = null;
+		Usuario usuario = null;
+		
+		try {
+			session = sessionFactory.openSession();
+			usuario = (Usuario) session.get(Usuario.class, cedula);
+			if(usuario == null){
+				throw new MyDaoExeption("Usuario no encontrado", null);
+			}
+			return usuario;
+		} catch (HibernateException  e) {
+			throw new MyDaoExeption("Usuario no encontrado", null);
+		}
+		
+	}
+
+	@Override
+	public void guardar(Usuario usuario) throws MyDaoExeption {
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.save(usuario); 
+			//transaction.commit();
+		} catch (HibernateException	 e) {
+			throw new MyDaoExeption(e);
+		}
+		
+	}
+
+	@Override
+	public void actualizar(Usuario usuario) throws MyDaoExeption {
+		// TODO Auto-generated method stub
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.update(usuario);
+			transaction.commit();
+		} catch (HibernateException e) {
+			// TODO: handle exception
+			throw new MyDaoExeption(e);
+		}
+		
 	}
 
 
