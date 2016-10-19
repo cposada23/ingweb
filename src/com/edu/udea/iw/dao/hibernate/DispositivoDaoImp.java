@@ -1,0 +1,39 @@
+package com.edu.udea.iw.dao.hibernate;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
+
+import com.edu.udea.iw.dao.DispositivoDao;
+import com.edu.udea.iw.dto.Dispositivo;
+import com.edu.udea.iw.exeption.MyDaoExeption;
+
+public class DispositivoDaoImp implements DispositivoDao {
+
+	private SessionFactory sessionFactory; 
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
+	@Override
+	public List<Dispositivo> getDispositivos() throws MyDaoExeption {
+		Session session = null;
+		List<Dispositivo> dipositivos = null;
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria = session.createCriteria(Dispositivo.class);
+			dipositivos = criteria.list();
+		} catch (HibernateException e) {
+			throw new MyDaoExeption(e);
+		}
+		return dipositivos;
+	}
+
+}

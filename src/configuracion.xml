@@ -42,6 +42,9 @@
 				
 				<value>com/edu/udea/iw/mapping/Rol.hbm.xml</value>
 				<value>com/edu/udea/iw/mapping/Usuario.hbm.xml</value>
+				<value>com/edu/udea/iw/mapping/Tipo.hbm.xml</value>
+				<value>com/edu/udea/iw/mapping/Dispositivo.hbm.xml</value>
+				
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -70,9 +73,8 @@
 		<property name="dao" ref="usuarioDao"></property>
 	</bean>
 	
-	
-	
-	
-
+	<bean id="dispositivoDao" class="com.edu.udea.iw.dao.hibernate.DispositivoDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 </beans>

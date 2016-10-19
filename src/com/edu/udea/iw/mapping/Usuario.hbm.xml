@@ -21,7 +21,6 @@
         <property name="email" type="java.lang.String">
         	<column name="Email"></column>
         </property>
-        
         <many-to-one name="rol" class="com.edu.udea.iw.dto.Rol" fetch="join">
             <column name="Rol"/>
         </many-to-one>
