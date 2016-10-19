@@ -30,7 +30,7 @@ public class DispositivoBLimp implements DispositivoBL {
 		if(creador==null){
 			throw new MyDaoExeption("El usuario que crea no existe", null);
 		}else if(!creador.getRol().getCodigo().equals("ADM")){
-			throw new MyDaoExeption("Para crear un dispositivo debe ser un administrado", null);
+			throw new MyDaoExeption("Para crear un dispositivo debe ser un administrador", null);
 		}
 		
 		Tipo t = new Tipo();

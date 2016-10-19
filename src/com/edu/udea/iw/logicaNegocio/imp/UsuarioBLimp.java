@@ -1,5 +1,7 @@
 package com.edu.udea.iw.logicaNegocio.imp;
 
+import javax.swing.plaf.basic.BasicTreeUI.TreeHomeAction;
+
 import com.edu.udea.iw.dao.UsuarioDao;
 import com.edu.udea.iw.dto.Rol;
 import com.edu.udea.iw.dto.Usuario;
@@ -28,9 +30,17 @@ public class UsuarioBLimp implements UsuarioBL {
 	@Override
 	public boolean validarUP(String cedula, String pws) throws MyDaoExeption {
 		// TODO Auto-generated method stub
-		//System.out.println(cifrar.encrypt(pws));
+
 		
 		Usuario  user = usuarioDao.obtenerPorCedula(cedula);
+		if(user == null){
+			throw new MyDaoExeption("No hay ningun usuario registrado con esa cedula en la base de datos", null);
+		}
+		if("".equals(cedula.trim())){
+			throw new MyDaoExeption("Se debe especificar la cedula" , null);
+		}if("".equals(pws.trim())){
+			throw new MyDaoExeption("Se debe ingresar la contraseña",null);
+		}
 		
 		if(user.getContrasena().equals(cifrar.encrypt(pws))){
 			return true;
