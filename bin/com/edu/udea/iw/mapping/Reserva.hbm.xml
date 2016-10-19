@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <class name="com.edu.udea.iw.dto.Reserva" table="reservas">
+  <id  name="Codigo">
+   <column  name="Codigo" />
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.edu.udea.iw.dto.Usuario" fetch="join" name="usuarioReserva">
+   <column name="UsuarioReserva"/>
+  </many-to-one>
+  <many-to-one class="com.edu.udea.iw.dto.Usuario" fetch="join" name="usuarioAprueba">
+   <column name="UsuarioAprueba"/>
+  </many-to-one>
+  <many-to-one class="com.edu.udea.iw.dto.Dispositivo" fetch="join" name="dispositivo">
+   <column name="Dispositivo" />
+  </many-to-one>
+  <property    name="fechaReserva" type="java.util.Date">
+   <column name="FechaReserva"/>
+  </property>
+  <property   name="vence" type="java.util.Date">
+   <column name="Vence"/>
+  </property>
+ </class>
+</hibernate-mapping>
