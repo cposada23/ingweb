@@ -24,6 +24,7 @@ private SessionFactory sessionFactory;
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+	
 	@Override
 	public List<Usuario> obtener() throws MyDaoExeption {
 		Session session = null;

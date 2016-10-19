@@ -34,7 +34,7 @@ public class PrestamoDaoTestCase {
 		List<Prestamo> prestamos = null;
 		try{
 			
-			prestamos = prestamoDao.obtener();
+			prestamos = prestamoDao.obtenerReservas();
 			if(prestamos.size()>0){
 				for (Prestamo prestamo: prestamos){
 					System.out.println(prestamo.getCodigo()+ "," + prestamo.getFechaInicio());

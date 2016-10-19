@@ -34,7 +34,7 @@ public class ReservaDaoTestCase {
 		List<Reserva> reservas = null;
 		try{
 			
-			reservas = reservaDao.obtener();
+			reservas = reservaDao.obtenerReservas();
 			if(reservas.size()>0){
 				for (Reserva reserva: reservas){
 					System.out.println(reserva.getCodigo()+ "," + reserva.getDispositivo());
