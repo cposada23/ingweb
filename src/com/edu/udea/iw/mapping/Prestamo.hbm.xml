@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                                   
+<hibernate-mapping>
+
+ <class name="com.edu.udea.iw.dto.Prestamo" table="prestamos">
+  <id name="Codigo" >
+   <column name="Codigo"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.edu.udea.iw.dto.Usuario" fetch="join" name="UsuarioPresta">
+   <column name="UsuarioPresta" />
+  </many-to-one>
+  <many-to-one class="com.edu.udea.iw.dto.Usuario" fetch="join" name="UsuarioAprueba">
+   <column name="UsuarioAprueba" />
+  </many-to-one>
+  <many-to-one class="com.edu.udea.iw.dto.Dispositivo" fetch="join" name="Dispositivo">
+   <column name="Dispositivo" />
+  </many-to-one>
+  <property  name="FechaInicio" type="java.util.Date">
+   <column name="FechaInicio"  />
+  </property>
+  <property  insert="true"  name="FechaFin"   type="java.util.Date">
+   <column name="FechaFin" not-null="true" />
+  </property>
+ </class>
+</hibernate-mapping>
