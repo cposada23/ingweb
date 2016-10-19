@@ -44,6 +44,8 @@
 				<value>com/edu/udea/iw/mapping/Usuario.hbm.xml</value>
 				<value>com/edu/udea/iw/mapping/Tipo.hbm.xml</value>
 				<value>com/edu/udea/iw/mapping/Dispositivo.hbm.xml</value>
+				<value>com/edu/udea/iw/mapping/Prestamo.hbm.xml</value>
+				<value>com/edu/udea/iw/mapping/Reserva.hbm.xml</value>
 				
 			</list>
 		</property>
@@ -81,6 +83,15 @@
 		<property name="usuarioDao" ref="usuarioDao"></property>
 		<property name="dispositivoDao" ref="dispositivoDao"></property>
 	</bean>
+	
+	<bean id="prestamoDao" class="com.edu.udea.iw.dao.hibernate.PrestamoDaoImpHibernate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="reservaDao" class="com.edu.udea.iw.dao.hibernate.ReservaDaoImpHibernate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	
 	
 	
 </beans>
