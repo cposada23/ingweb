@@ -13,6 +13,7 @@ public class Usuario {
 	private String contrasena;
 	private Rol rol;
 	private String email;
+	
 	public String getCedula() {
 		return cedula;
 	}
