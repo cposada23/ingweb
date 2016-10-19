@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 
 import com.edu.udea.iw.dao.DispositivoDao;
@@ -34,6 +35,21 @@ public class DispositivoDaoImp implements DispositivoDao {
 			throw new MyDaoExeption(e);
 		}
 		return dipositivos;
+	}
+
+	@Override
+	public void crear(Dispositivo dispositivo) throws MyDaoExeption {
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.save(dispositivo); 
+			//transaction.commit();
+		} catch (HibernateException	 e) {
+			throw new MyDaoExeption(e);
+		}
+		
 	}
 
 }

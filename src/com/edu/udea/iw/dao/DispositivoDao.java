@@ -14,5 +14,13 @@ public interface DispositivoDao {
 	 * @throws MyDaoExeption
 	 */
 	public List<Dispositivo> getDispositivos() throws MyDaoExeption;
+	
+	
+	/**
+	 * Crea un nuevo dispositivo en la base de datos
+	 * @param dispositivo
+	 * @throws MyDaoExeption
+	 */
+	public void crear(Dispositivo dispositivo) throws MyDaoExeption;
 
 }
