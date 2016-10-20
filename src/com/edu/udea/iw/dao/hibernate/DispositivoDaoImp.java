@@ -51,5 +51,18 @@ public class DispositivoDaoImp implements DispositivoDao {
 		}
 		
 	}
+	
+	@Override
+	public Dispositivo obtenerPorCodigo(int codigo) throws MyDaoExeption {
+		Session session = null;
+		Dispositivo dispositivo = null;
+		try {
+			session = sessionFactory.openSession();
+			dispositivo = (Dispositivo) session.get(Dispositivo.class, codigo);
+		} catch (HibernateException e) {
+			throw new MyDaoExeption(e);
+		}
+		return dispositivo;
+	}
 
 }

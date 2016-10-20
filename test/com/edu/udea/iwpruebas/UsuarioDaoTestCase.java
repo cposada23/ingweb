@@ -63,7 +63,7 @@ public class UsuarioDaoTestCase {
 	 * ya que sabemos que en la base de datos hay un usuario con la cedula
 	 * 1234556
 	 */
-	/*
+	
 	
 	@Test
 	public void testObtenerPorCedula(){
@@ -85,7 +85,7 @@ public class UsuarioDaoTestCase {
 	 * Se verifica que no se obtenga ningun usuario cuando se pasa
 	 * una cedula que no esta registrada en la bd
 	 */
-	/*
+	
 	@Test
 	public void testUsuariNoExiste(){
 		Usuario usuario = null;
@@ -130,7 +130,7 @@ public class UsuarioDaoTestCase {
 	public void testActualizar(){
 		Usuario usuario= null;
 		try {
-			usuario = dao.obtenerPorCedula("1234567890");
+			usuario = dao.obtenerPorCedula("1234556");
 			usuario.setNombres("camilo2");
 			dao.actualizar(usuario);
 		} catch (MyDaoExeption e) {
@@ -138,5 +138,5 @@ public class UsuarioDaoTestCase {
 			
 		}
 		
-	}*/
+	}
 }

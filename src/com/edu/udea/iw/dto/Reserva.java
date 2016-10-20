@@ -15,8 +15,17 @@ public class Reserva {
 	private Date FechaReserva;
 	private Date vence;
 	private Dispositivo dispositivo;
+	private int aprobado;
+	
+	
 	
 
+	public int isAprobado() {
+		return aprobado;
+	}
+	public void setAprobado(int aprobado) {
+		this.aprobado = aprobado;
+	}
 	public int getCodigo() {
 		return codigo;
 	}

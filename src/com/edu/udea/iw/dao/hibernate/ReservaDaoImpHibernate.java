@@ -1,5 +1,6 @@
 package com.edu.udea.iw.dao.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -7,10 +8,12 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
 
 import com.edu.udea.iw.dao.ReservaDao;
 import com.edu.udea.iw.dto.Prestamo;
 import com.edu.udea.iw.dto.Reserva;
+import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 public class ReservaDaoImpHibernate implements ReservaDao {
@@ -91,6 +94,37 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 			throw new MyDaoExeption(e);
 		}
 		
+	}
+
+	@Override
+	public List<Reserva> obtenerReservasNoAprobadas() throws MyDaoExeption {
+		Session session = null;
+		List<Reserva> reserva = null;
+		
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria =  session.createCriteria(Reserva.class).add(Restrictions.eq("Aprobado", 0));
+			reserva = criteria.list();
+			return reserva;
+		} catch (HibernateException  e) {
+			throw new MyDaoExeption("Prestamo no encontrado", null);
+		}
+	}
+
+	@Override
+	public List<Reserva> ObtenerReservaPorUsuario(Usuario usuario) throws MyDaoExeption {
+		Session session = null;
+		List<Reserva> reserva = null;
+		
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria =  session.createCriteria(Reserva.class).add(Restrictions.eq("usuarioReserva", usuario));
+			reserva = criteria.list();
+			
+		} catch (HibernateException  e) {
+			throw new MyDaoExeption("Reserva no encontrado", null);
+		}
+		return reserva;
 	}
 
 

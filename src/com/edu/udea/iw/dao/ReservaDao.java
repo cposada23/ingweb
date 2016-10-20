@@ -6,6 +6,7 @@ import java.util.List;
  */
 
 import com.edu.udea.iw.dto.Reserva;
+import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 public interface ReservaDao {
@@ -44,5 +45,20 @@ public interface ReservaDao {
 	 * @throws MyDaoExeption
 	 */
 	public void crearReserva(Reserva reserva)throws MyDaoExeption;
+	
+	/**
+	 * retorna las reservas que no han sido aprovadas
+	 * @return
+	 * @throws MyDaoExeption
+	 */
+	public List<Reserva> obtenerReservasNoAprobadas() throws MyDaoExeption;
+	
+	/**
+	 * Obtenemos una reserva dado el usuario
+	 * @param usuario
+	 * @return
+	 * @throws MyDaoExeption
+	 */
+	public List<Reserva> ObtenerReservaPorUsuario(Usuario usuario) throws MyDaoExeption;
 
 }

@@ -22,5 +22,14 @@ public interface DispositivoDao {
 	 * @throws MyDaoExeption
 	 */
 	public void crear(Dispositivo dispositivo) throws MyDaoExeption;
+	
+	/**
+	 * Busca un dispositivo por medio de su codigo
+	 * @param codigo
+	 * @return
+	 * @throws MyDaoExeption
+	 */
+
+	public Dispositivo obtenerPorCodigo(int codigo) throws MyDaoExeption;
 
 }

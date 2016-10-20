@@ -23,5 +23,8 @@
   <property   name="vence" type="java.util.Date">
    <column name="Vence"/>
   </property>
+    <property   name="Aprobado" >
+   <column name="Aprobado"/>
+  </property>
  </class>
 </hibernate-mapping>
