@@ -1,6 +1,7 @@
 package com.edu.udea.iw.dao;
 
 /**
+ * Interface de Prestamo
  * @author Andersson Villa
  */
 

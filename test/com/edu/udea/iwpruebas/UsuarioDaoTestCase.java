@@ -42,11 +42,6 @@ public class UsuarioDaoTestCase {
 		try{
 			
 			usuarios = dao.obtener();
-			if(usuarios.size()>0){
-				for (Usuario usuario: usuarios){
-					System.out.println(usuario.getNombres()+ "," + usuario.getEmail());
-				}
-			}
 			assertTrue(usuarios.size()> 0);
 			
 		}catch (MyDaoExeption e) {

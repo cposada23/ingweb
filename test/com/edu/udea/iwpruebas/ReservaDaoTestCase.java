@@ -28,11 +28,7 @@ public class ReservaDaoTestCase {
 		List<Reserva> reservas = null;
 		try {
 			reservas = reservaDao.obtener();
-			if(reservas.size()> 0){
-				for(Reserva reserva:reservas){
-					System.out.println(reserva.getCodigo());
-				}
-			}
+			
 			assertTrue(reservas.size()>0);
 		} catch (MyDaoExeption e) {
 			fail(e.getMessage());
@@ -46,11 +42,7 @@ public class ReservaDaoTestCase {
 		try{
 			
 			reservas = reservaDao.obtenerReservasNoAprobadas();
-			if(reservas.size()>0){
-				for (Reserva reserva: reservas){
-					System.out.println(reserva.getCodigo()+", "+reserva.getAprobado());
-				}
-			}
+			
 			assertTrue(reservas.size()> 0);
 			
 		}catch (MyDaoExeption e) {
@@ -68,11 +60,6 @@ public class ReservaDaoTestCase {
 		usuario.setCedula("1234556");
 		try{			
 			reserva = reservaDao.ObtenerReservaPorUsuario(usuario);
-			if(reserva.size()>0){
-				for(Reserva rese:reserva){
-					System.out.println(rese.getCodigo()+", "+rese.getUsuarioReserva().getCedula());
-				}
-			}
 			
 			assertTrue(reserva.size()>0);
 		}catch (MyDaoExeption e) {

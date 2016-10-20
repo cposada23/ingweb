@@ -13,7 +13,10 @@ import com.edu.udea.iw.dao.ReservaDao;
 import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
-
+/**
+ * Clase Hibernate de Reserva que implementa la interfaz ReservaDao
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class ReservaDaoImpHibernate implements ReservaDao {
 
 	
@@ -60,7 +63,7 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 	}
 
 	@Override
-	public Reserva obtenerPrestamo(int id) throws MyDaoExeption {
+	public Reserva obtenerReserva(int id) throws MyDaoExeption {
 		Session session = null;
 		Reserva reserva = null;
 		
@@ -70,7 +73,7 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 			
 			return reserva;
 		} catch (HibernateException  e) {
-			throw new MyDaoExeption("Prestamo no encontrado", null);
+			throw new MyDaoExeption("Reserva no encontrado", null);
 		}
 	}
 
@@ -82,7 +85,7 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
 			session.update(reserva);
-			transaction.commit();
+			//transaction.commit();
 		} catch (HibernateException e) {
 			// TODO: handle exception
 			throw new MyDaoExeption(e);

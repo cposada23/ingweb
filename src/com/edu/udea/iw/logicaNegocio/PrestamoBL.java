@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.edu.udea.iw.dto.Prestamo;
 import com.edu.udea.iw.exeption.MyDaoExeption;
-
+/**
+ * Interface de Prestamo para la logica del negocio
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public interface PrestamoBL {
 
 	/**

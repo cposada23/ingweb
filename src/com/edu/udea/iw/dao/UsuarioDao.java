@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
-
+/**
+ * Interface de Usuario 
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public interface UsuarioDao {
 
 	/** Obtiene todos los usuarios de la base de datos

@@ -9,7 +9,10 @@ import com.edu.udea.iw.exeption.MyDaoExeption;
 import com.edu.udea.iw.logicaNegocio.UsuarioBL;
 import com.edu.udea.iw.utils.Cifrar;
 import com.edu.udea.iw.utils.Validaciones;
-
+/**
+ * Clase de Usuario para la logica del negocio que implementa la interface UsuarioBL
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class UsuarioBLimp implements UsuarioBL {
 	
 	private UsuarioDao usuarioDao;

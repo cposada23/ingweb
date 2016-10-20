@@ -14,7 +14,10 @@ import com.edu.udea.iw.dto.Prestamo;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 import com.edu.udea.iw.logicaNegocio.PrestamoBL;
-
+/**
+ * Clase de Prestamo para la logica del negocio que implementa la interface PrestamoBL
+ * @author  Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class PrestamoBLimp implements PrestamoBL {
 	
 	

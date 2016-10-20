@@ -13,10 +13,13 @@ import com.edu.udea.iw.dao.UsuarioDao;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
+/**
+ * Clase Hibernate de Usuario que implementa la interfaz UsuarioDao
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class UsuarioDaoImpHibernate implements UsuarioDao {
 
-	
-private SessionFactory sessionFactory; 
+	private SessionFactory sessionFactory; 
 	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

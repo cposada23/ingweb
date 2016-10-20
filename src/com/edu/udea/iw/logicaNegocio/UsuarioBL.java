@@ -3,11 +3,10 @@ package com.edu.udea.iw.logicaNegocio;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 /**
- * Clase para validar la logica del negocio con respecto a los usuarios
- * @author cposa
+ * Interface para validar la logica del negocio con respecto a los usuarios
+ * @author Camilo Posada Angel - cposadaa@gmail.com
  *
  */
-
 public interface UsuarioBL {
 	
  /**

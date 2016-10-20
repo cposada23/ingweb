@@ -17,6 +17,11 @@ import com.edu.udea.iw.dto.Prestamo;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
+
+/**
+ * Clase Hibernate de Prestamo que implementa la interfaz PrestamoDao
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class PrestamoDaoImpHibernate implements PrestamoDao {
 
 	

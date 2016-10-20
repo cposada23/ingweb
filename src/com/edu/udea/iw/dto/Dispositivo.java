@@ -1,7 +1,10 @@
 package com.edu.udea.iw.dto;
 
 import java.util.Date;
-
+/**
+ * Clase dto para el acceso a la tabla de dispositivo
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class Dispositivo {
 
 	private int codigo;

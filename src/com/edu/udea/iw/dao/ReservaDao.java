@@ -30,7 +30,7 @@ public interface ReservaDao {
 	 * @return
 	 * @throws MyDaoExeption
 	 */
-	public Reserva obtenerPrestamo(int id)throws MyDaoExeption;
+	public Reserva obtenerReserva(int id)throws MyDaoExeption;
 	/**
 	 * se actualiza la reserva en la base de datos
 	 * @param reserva

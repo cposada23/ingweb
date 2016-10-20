@@ -2,7 +2,10 @@ package com.edu.udea.iw.logicaNegocio;
 
 import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.exeption.MyDaoExeption;
-
+/**
+ * Interface de Reserva para la logica del negocio
+ * @author Camilo Posada Angel - cposadaa@gmail.com
+ */
 public interface ReservaBL {
 
 	/**

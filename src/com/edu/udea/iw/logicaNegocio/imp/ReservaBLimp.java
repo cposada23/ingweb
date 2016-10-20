@@ -11,7 +11,10 @@ import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 import com.edu.udea.iw.logicaNegocio.ReservaBL;
-
+/**
+ * Clase de Reserva para la logica del negocio que implementa la interface ReservaBL
+ * @author  Camilo Posada Angel - cposadaa@gmail.com
+ */
 public class ReservaBLimp implements ReservaBL {
 	private UsuarioDao usuarioDao;
 	private DispositivoDao dispositivoDao;
@@ -81,8 +84,32 @@ public class ReservaBLimp implements ReservaBL {
 
 	@Override
 	public void aprobarReserva(String usuarioAprueba, Reserva reserva) throws MyDaoExeption {
-		// TODO Auto-generated method stub
-
+		if("".equals(usuarioAprueba.trim())){
+			throw new MyDaoExeption("Se debe especificar el usuario que aprueba la reserva", null);
+		}
+		Usuario usuario = usuarioDao.obtenerPorCedula(usuarioAprueba);
+		if(usuario == null){
+			throw new MyDaoExeption("El usuario que aprueba no se encuentra registrado en la base de datos", null);
+		}
+		if(!"ADM".equals(usuario.getRol().getCodigo())){
+			throw new MyDaoExeption("La reserva solo puede ser aprobada por un administrador", null);
+		}
+		
+		if(reserva == null){
+			throw new MyDaoExeption("Se debe especificar la reserva a ser aprobada", null);
+		}
+		if(reserva.getAprobado()){
+			throw new MyDaoExeption("La reserva ya fue aprobada", null);
+		}
+		
+		reserva.setAprobado(true);
+		reserva.setUsuarioAprueba(usuario);
+		try {
+			reservaDao.actualizarReserva(reserva);
+		} catch (MyDaoExeption e) {
+			throw new MyDaoExeption("Error aprobando la reserva intente de nuevo", null);
+		}
+		
 	}
 
 }

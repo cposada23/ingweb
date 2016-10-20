@@ -73,5 +73,40 @@ public class DipositivoDaoTestCase {
 		}
 		
 	}
+	
+	@Test 
+	public void getDispositivosDisponiblesPorTipo(){
+		List<Dispositivo> dispositivos = null;
+		
+		Tipo tipo = new Tipo();
+		tipo.setCodigo("micro");
+		try{
+			
+			dispositivos = dispositivoDao.listarDispositivosDisponibles(tipo);
+			assertTrue(dispositivos.size()> 0);
+			
+		}catch (MyDaoExeption e) {
+			//System.out.println(e.getMessage());
+			fail(e.getMessage());
+			
+		}
+	}
+	
+	@Test 
+	public void getDisponibles(){
+		List<Dispositivo> dispositivos = null;
+		
+			
+		try{
+			
+			dispositivos = dispositivoDao.listarDiposnibles();
+			assertTrue(dispositivos.size()> 0);
+			
+		}catch (MyDaoExeption e) {
+			//System.out.println(e.getMessage());
+			fail(e.getMessage());
+			
+		}
+	}
 
 }
