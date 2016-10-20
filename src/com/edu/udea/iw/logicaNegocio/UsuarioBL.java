@@ -31,4 +31,13 @@ public interface UsuarioBL {
 	 * @throws MyDaoExeption
 	 */
 	public void crearInvestigador(String cedula, String nombre, String apellidos, String contrasena, String email) throws MyDaoExeption;
+
+	/**
+	 * Valida un el email y contraseña de un usuario
+	 * @param email
+	 * @param pws
+	 * @return
+	 * @throws MyDaoExeption
+	 */
+	public boolean validarUE(String email, String pws) throws MyDaoExeption;
 }

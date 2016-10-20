@@ -32,6 +32,20 @@ public class UsuarioBLTestcase {
 		}
 	}
 	
+	/**
+	 * test para validar email y contraseña
+	 */
+	@Test
+	public void testValidarEP(){
+		String email = "elver@elver.com";
+		String pws = "elver";
+		try {
+			assertTrue(usuarioBL.validarUE(email, pws));
+		} catch (MyDaoExeption e) {
+			fail(e.getMessage());
+		}
+	}
+	
 	@Test
 	public void testCrearInvestigador(){
 		try {

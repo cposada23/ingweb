@@ -36,7 +36,7 @@ public class UsuarioDaoTestCase {
 	 * la prueba falla si esta lista no contiene ningun objeto
 	 */
 	
-	@Test
+	
 	public void testObtener() {
 		List<Usuario> usuarios = null;
 		try{
@@ -64,7 +64,7 @@ public class UsuarioDaoTestCase {
 	 * 1234556
 	 */
 	
-	@Test
+	
 	public void testObtenerPorCedula(){
 		Usuario usuario = null;
 		String cedula = "1234556";
@@ -84,8 +84,7 @@ public class UsuarioDaoTestCase {
 	 * Se verifica que no se obtenga ningun usuario cuando se pasa
 	 * una cedula que no esta registrada en la bd
 	 */
-	
-	@Test
+
 	public void testUsuariNoExiste(){
 		Usuario usuario = null;
 		String cedula = "333";
@@ -99,7 +98,7 @@ public class UsuarioDaoTestCase {
 		
 	}
 	
-	@Test
+
 	public void testGuardar(){
 		Usuario usuario = new Usuario();
 		Cifrar cifrar = new Cifrar();
@@ -125,17 +124,29 @@ public class UsuarioDaoTestCase {
 	}
 	
 	
-	@Test
+
 	public void testActualizar(){
 		Usuario usuario= null;
 		try {
-			usuario = dao.obtenerPorCedula("1234567890");
-			usuario.setNombres("camilo2");
+			usuario = dao.obtenerPorCedula("1234556");
+			usuario.setNombres("Elver");
 			dao.actualizar(usuario);
 		} catch (MyDaoExeption e) {
 			fail(e.getMessage());
 			
 		}
 		
+	}
+	
+	@Test
+	public void testObtenerPorEmail(){
+		Usuario usuario = null;
+		try {
+			String email = "elver@elver.com";
+			usuario = dao.obtenerPorEmail(email);
+			assertTrue("Elver".equals(usuario.getNombres()));
+		} catch (MyDaoExeption e) {
+			fail(e.getMessage());
+		}
 	}
 }

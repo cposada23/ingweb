@@ -33,11 +33,18 @@ public interface UsuarioDao {
 	
 	
 	/**
-	 * acturaliza los datos de un usuario en la bd
+	 * actualiza los datos de un usuario en la bd
 	 * @param usuario
 	 * @throws MyDaoExeption
 	 */
 	public void actualizar(Usuario usuario) throws MyDaoExeption;
+	
+	/**
+	 * Obtiene un usuario a partir de su email
+	 * @param email
+	 * @throws MyDaoExeption
+	 */
+	public Usuario obtenerPorEmail(String email) throws MyDaoExeption;
 	
 	
 }
