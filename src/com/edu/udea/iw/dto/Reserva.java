@@ -15,6 +15,12 @@ public class Reserva {
 	private Date FechaReserva;
 	private Date vence;
 	private Dispositivo dispositivo;
+	private boolean aprobado;
+	
+	
+	
+
+	
 	
 
 	public int getCodigo() {
@@ -53,6 +59,13 @@ public class Reserva {
 	}
 	public void setDispositivo(Dispositivo dispositivo) {
 		this.dispositivo = dispositivo;
+	}
+	
+	public boolean getAprobado() {
+		return aprobado;
+	}
+	public void setAprobado(boolean aprobado) {
+		this.aprobado = aprobado;
 	}
 
 	

@@ -93,7 +93,6 @@ private SessionFactory sessionFactory;
 	public Usuario obtenerPorEmail(String email) throws MyDaoExeption {
 		Session session = null;
 		Usuario usuario = null;
-		List<Usuario> usuarios = null;
 		
 		try {
 			session = sessionFactory.openSession();

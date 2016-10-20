@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.theInstance;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import com.edu.udea.iw.dao.DispositivoDao;
 import com.edu.udea.iw.dao.PrestamoDao;
@@ -96,9 +97,22 @@ public class PrestamoBLimp implements PrestamoBL {
 	}
 
 	@Override
-	public Prestamo buscarPrestamo(String usuarioPresta) throws MyDaoExeption {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Prestamo> buscarPrestamos(String usuarioPresta) throws MyDaoExeption {
+		if("".equals(usuarioPresta.trim())){
+			throw new MyDaoExeption("Se debe especificar el usuario que presta", null);
+		}
+		Usuario usuario = usuarioDao.obtenerPorCedula(usuarioPresta);
+		if(usuario == null ){
+			throw new MyDaoExeption("El usuario no existe en la bd", null);
+		}
+		List<Prestamo> prestamos = null;
+		try {
+			prestamos = prestamoDao.obtenerPrestamosUsuario(usuario);
+		} catch (Exception e) {
+			throw new MyDaoExeption("Error obteniendo los prestamos del usuario", null);
+		}
+		
+		return prestamos;
 	}
 
 }

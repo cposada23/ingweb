@@ -10,9 +10,11 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
 
 import com.edu.udea.iw.dao.PrestamoDao;
 import com.edu.udea.iw.dto.Prestamo;
+import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 public class PrestamoDaoImpHibernate implements PrestamoDao {
@@ -51,16 +53,41 @@ public class PrestamoDaoImpHibernate implements PrestamoDao {
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
 			session.save(prestamo); 
-			//transaction.commit();
+			transaction.commit();
 		} catch (HibernateException	 e) {
 			throw new MyDaoExeption(e);
 		}
 		
 	}
 
-
+	@Override
+	public Prestamo obtenerPorCodigo(int codigo) throws MyDaoExeption {
+		Session session = null;
+		Prestamo prestamo = null;
+		
+		try {
+			session = sessionFactory.openSession();
+			prestamo = (Prestamo) session.get(Prestamo.class, codigo);
+			return prestamo;
+		} catch (HibernateException e) {
+			throw new MyDaoExeption(e);
+		}
 	
+	}
 
+	@Override
+	public List<Prestamo> obtenerPrestamosUsuario(Usuario usuario) throws MyDaoExeption {
+		Session session = null;
+		List<Prestamo> prestamos = null;
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria = session.createCriteria(Prestamo.class).add(Restrictions.eq("usuarioPresta", usuario));
+			prestamos = criteria.list();
+		} catch (HibernateException e) {
+			throw new MyDaoExeption(e);
+		}
+		
+		return prestamos;
+	}
 	
-
 }
