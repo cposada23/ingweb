@@ -43,6 +43,21 @@ public class PrestamoDaoImpHibernate implements PrestamoDao {
 		return prestamos;
 	}
 
+	@Override
+	public void guardar(Prestamo prestamo) throws MyDaoExeption {
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+			session.save(prestamo); 
+			//transaction.commit();
+		} catch (HibernateException	 e) {
+			throw new MyDaoExeption(e);
+		}
+		
+	}
+
 
 	
 

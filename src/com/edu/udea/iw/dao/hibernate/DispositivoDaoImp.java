@@ -10,6 +10,7 @@ import org.hibernate.classic.Session;
 
 import com.edu.udea.iw.dao.DispositivoDao;
 import com.edu.udea.iw.dto.Dispositivo;
+import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 public class DispositivoDaoImp implements DispositivoDao {
@@ -50,6 +51,19 @@ public class DispositivoDaoImp implements DispositivoDao {
 			throw new MyDaoExeption(e);
 		}
 		
+	}
+
+	@Override
+	public Dispositivo obtenerPorCodigo(int codigo) throws MyDaoExeption {
+		Session session = null;
+		Dispositivo dispositivo = null;
+		try {
+			session = sessionFactory.openSession();
+			dispositivo = (Dispositivo) session.get(Dispositivo.class, codigo);
+		} catch (HibernateException e) {
+			throw new MyDaoExeption(e);
+		}
+		return dispositivo;
 	}
 
 }

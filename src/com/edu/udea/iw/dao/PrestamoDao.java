@@ -17,5 +17,14 @@ public interface PrestamoDao {
 	 * @throws MyDaoExeption
 	 */
 	public List<Prestamo> obtener() throws MyDaoExeption;
+	
+	
+	/**
+	 * guarda un nuevo prestamo en la bd
+	 * @param prestamo
+	 * @throws MyDaoExeption
+	 */
+	public void guardar(Prestamo prestamo) throws MyDaoExeption;
+	
 
 }

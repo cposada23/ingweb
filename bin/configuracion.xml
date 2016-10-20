@@ -93,5 +93,11 @@
 	</bean>	
 	
 	
+	<bean id="prestamoBL" class="com.edu.udea.iw.logicaNegocio.imp.PrestamoBLimp">
+		<property name="usuarioDao" ref="usuarioDao"></property>
+		<property name="dispositivoDao" ref="dispositivoDao"></property>
+		<property name="prestamoDao" ref="prestamoDao"></property>
+	</bean>
+	
 	
 </beans>
