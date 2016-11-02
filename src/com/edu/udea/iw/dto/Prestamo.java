@@ -9,6 +9,8 @@ package com.edu.udea.iw.dto;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Prestamo {
 	private int codigo;
 	private Usuario usuarioPresta;

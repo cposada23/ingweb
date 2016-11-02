@@ -1,5 +1,7 @@
 package com.edu.udea.iw.logicaNegocio;
 
+import java.util.List;
+
 import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 /**
@@ -23,6 +25,14 @@ public interface ReservaBL {
 	 * @throws MyDaoExeption
 	 */
 	public void aprobarReserva(String usuarioAprueba, Reserva reserva) throws MyDaoExeption;
+	
+	/**
+	 * Obtener todas las reservas de un usuario
+	 * @param usuarioReserva
+	 * @return Lista de reservas del usuario 
+	 * @throws MyDaoExeption en caso de que el usuaio no exista o no tenga reservas 
+	 */
+	public List<Reserva> misReservas(String usuarioReserva) throws MyDaoExeption;
 	
 	
 }

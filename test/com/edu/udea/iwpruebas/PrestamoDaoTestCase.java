@@ -43,7 +43,7 @@ public class PrestamoDaoTestCase {
 	@Test 
 	public void testObtenerCodigo(){
 		Prestamo prestamo = null;
-		int codigo = 3;
+		int codigo = 1;
 		try {
 			prestamo = prestamoDao.obtenerPorCodigo(codigo);
 			assertTrue(prestamo.getUsuarioAprueba().getCedula().equals("1234556"));
@@ -58,7 +58,7 @@ public class PrestamoDaoTestCase {
 	public void testObtenerPrestamosUsuario(){
 		List<Prestamo> prestamos = null;
 		Usuario usuario = new Usuario();
-		usuario.setCedula("9876543");
+		usuario.setCedula("1234556");
 		try {
 			prestamos = prestamoDao.obtenerPrestamosUsuario(usuario);
 			assertTrue(prestamos.size()>0);

@@ -2,6 +2,7 @@ package com.edu.udea.iw.logicaNegocio.imp;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import com.edu.udea.iw.dao.DispositivoDao;
 import com.edu.udea.iw.dao.ReservaDao;
@@ -11,6 +12,7 @@ import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 import com.edu.udea.iw.logicaNegocio.ReservaBL;
+import com.edu.udea.iw.logicaNegocio.UsuarioBL;
 /**
  * Clase de Reserva para la logica del negocio que implementa la interface ReservaBL
  * @author  Camilo Posada Angel - cposadaa@gmail.com
@@ -110,6 +112,25 @@ public class ReservaBLimp implements ReservaBL {
 			throw new MyDaoExeption("Error aprobando la reserva intente de nuevo", null);
 		}
 		
+	}
+
+	@Override
+	public List<Reserva> misReservas(String usuarioReserva) throws MyDaoExeption {
+		if("".equals(usuarioReserva.trim())){
+			throw new MyDaoExeption("Se debe especificar el id del usuario que reserva", null);
+		}
+		
+		Usuario usuario = usuarioDao.obtenerPorCedula(usuarioReserva);
+		
+		if(usuario == null){
+			throw new MyDaoExeption("No se encontro el usuario con esa cedula", null);
+		}
+		
+		List <Reserva> reservas = reservaDao.ObtenerReservaPorUsuario(usuario);
+		if(reservas== null){
+			throw new MyDaoExeption("El usuario no tiene reservas", null);
+		}
+		return reservas;
 	}
 
 }

@@ -132,17 +132,17 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 	@Override
 	public List<Reserva> ObtenerReservaPorUsuario(Usuario usuario) throws MyDaoExeption {
 		Session session = null;
-		List<Reserva> reserva = null;
+		List<Reserva> reservas = null;
 		
 		try {
 			session = sessionFactory.openSession();
 			Criteria criteria =  session.createCriteria(Reserva.class).add(Restrictions.eq("usuarioReserva", usuario));
-			reserva = criteria.list();
+			reservas = criteria.list();
 			
 		} catch (HibernateException  e) {
 			throw new MyDaoExeption("Reserva no encontrado", null);
 		}
-		return reserva;
+		return reservas;
 	}
 
 

@@ -8,6 +8,8 @@ package com.edu.udea.iw.dto;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Reserva {
 	private int codigo;
 	private Usuario usuarioReserva;
@@ -15,12 +17,7 @@ public class Reserva {
 	private Date FechaReserva;
 	private Date vence;
 	private Dispositivo dispositivo;
-	private boolean aprobado;
-	
-	
-	
-
-	
+	private boolean aprobado;	
 	
 
 	public int getCodigo() {
