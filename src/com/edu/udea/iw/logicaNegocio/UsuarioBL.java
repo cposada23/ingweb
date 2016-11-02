@@ -1,5 +1,6 @@
 package com.edu.udea.iw.logicaNegocio;
 
+import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 
 /**
@@ -39,4 +40,14 @@ public interface UsuarioBL {
 	 * @throws MyDaoExeption
 	 */
 	public boolean validarUE(String email, String pws) throws MyDaoExeption;
+	
+	
+	/**
+	 * Valida el email y contraseña de un usuario 
+	 * @param email
+	 * @param pws
+	 * @return el usuario en caso de que la cotraseña y el email esten correctos
+	 * @throws MyDaoExeption en caso de que el usuario no se encuentre o la contraseña este mala
+	 */
+	public Usuario validar(String email, String pws) throws MyDaoExeption;
 }

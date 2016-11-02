@@ -116,6 +116,29 @@ public class UsuarioBLimp implements UsuarioBL {
 		return false;
 	}
 
+	@Override
+	public Usuario validar(String email, String pws) throws MyDaoExeption {
+		Usuario  user = usuarioDao.obtenerPorEmail(email);
+		if(user == null){
+			throw new MyDaoExeption("No hay ningun usuario registrado con ese email en la base de datos", null);
+		}
+		if("".equals(email.trim())){
+			throw new MyDaoExeption("Se debe especificar el email" , null);
+		}
+		if(!Validaciones.isEmail(email)){
+			throw new MyDaoExeption("El email debe tener un formato correcto" , null);
+		}
+		if("".equals(pws.trim())){
+			throw new MyDaoExeption("Se debe ingresar la contraseña",null);
+		}
+		
+		if(user.getContrasena().equals(cifrar.encrypt(pws))){
+			return user;
+		}
+		
+		throw new MyDaoExeption("Contraseña incorrecta" , null);
+	}
+
 	
 
 }
