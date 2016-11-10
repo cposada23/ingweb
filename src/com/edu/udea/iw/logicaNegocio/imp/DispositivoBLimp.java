@@ -1,6 +1,7 @@
 package com.edu.udea.iw.logicaNegocio.imp;
 
 import java.util.Date;
+import java.util.List;
 
 import com.edu.udea.iw.dao.DispositivoDao;
 import com.edu.udea.iw.dao.UsuarioDao;
@@ -188,6 +189,24 @@ public class DispositivoBLimp implements DispositivoBL {
 		}
 		
 		return dispositivo;
+	}
+	
+	@Override
+	public List<Dispositivo> listarDispositivos(String usuarioBusca) throws MyDaoExeption{
+		if("".equals(usuarioBusca.trim())){
+			throw new MyDaoExeption("El usuario que busca debe de ser especificado", null);
+		}
+		
+		List<Dispositivo> dispositivos = null;
+		
+		try {
+			dispositivos = dispositivoDao.getDispositivos();
+		} catch (MyDaoExeption e) {
+			 throw new MyDaoExeption("Ocurrio un error retornando los dispositivos, intente de nuevo", null);
+		}
+		
+		return dispositivos;
+		
 	}
 
 	

@@ -1,5 +1,7 @@
 package com.edu.udea.iw.logicaNegocio;
 
+import java.util.List;
+
 import com.edu.udea.iw.dto.Dispositivo;
 import com.edu.udea.iw.exeption.MyDaoExeption;
 /**
@@ -59,5 +61,11 @@ public interface DispositivoBL {
 	public Dispositivo listarDispositivoPorCodigo(String usuarioBusca, int codigo) throws MyDaoExeption;
 	
 	
-
+	/**
+	 * Retorna todos los dispositivos 
+	 * @param usuarioBusca
+	 * @return lista de dispositivos 
+	 * @throws MyDaoExeption 
+	 */
+	public List<Dispositivo> listarDispositivos(String usuarioBusca) throws MyDaoExeption;
 }

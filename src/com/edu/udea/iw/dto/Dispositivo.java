@@ -1,10 +1,14 @@
 package com.edu.udea.iw.dto;
 
 import java.util.Date;
+
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Clase dto para el acceso a la tabla de dispositivo
  * @author Camilo Posada Angel - cposadaa@gmail.com
  */
+
+@XmlRootElement
 public class Dispositivo {
 
 	private int codigo;
