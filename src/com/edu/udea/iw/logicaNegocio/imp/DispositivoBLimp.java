@@ -209,6 +209,22 @@ public class DispositivoBLimp implements DispositivoBL {
 		
 	}
 
+	/**
+	 * Listar todos los dispositivos disponibles en la base de datos
+	 */
+	@Override
+	public List<Dispositivo> listarDipositivosDisponibles(String usuarioBusca) throws MyDaoExeption {
+		List<Dispositivo> dispositivos = null;
+		try {
+			dispositivos = dispositivoDao.listarDiposnibles();
+		} catch (MyDaoExeption e) {
+			throw new MyDaoExeption("Ocurrio un error retornado los dispositivos disponibles, intente de nuevo", null);
+		}
+		return dispositivos;
+	}
+	
+	
+
 	
 
 	

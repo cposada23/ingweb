@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.edu.udea.iw.dto.Dispositivo;
 import com.edu.udea.iw.exeption.MyDaoExeption;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
 /**
  * Interface de Dispositivo para la logica del negocio
  * @author Camilo Posada Angel 
@@ -68,4 +69,13 @@ public interface DispositivoBL {
 	 * @throws MyDaoExeption 
 	 */
 	public List<Dispositivo> listarDispositivos(String usuarioBusca) throws MyDaoExeption;
+	
+	
+	/**
+	 * Retorna todos los dispositivos que tienen el estado diposnible = true
+	 * @param usuarioBusca
+	 * @return
+	 * @throws MyDaoExeption
+	 */
+	public List<Dispositivo> listarDipositivosDisponibles(String usuarioBusca) throws MyDaoExeption;
 }

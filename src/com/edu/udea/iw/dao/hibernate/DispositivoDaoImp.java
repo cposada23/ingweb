@@ -118,6 +118,10 @@ public class DispositivoDaoImp implements DispositivoDao {
 		return dispositivos;
 	}
 
+	
+	/**
+	 * Lista todos los dispositivos que estan disponibles para ser reservados
+	 */
 	@Override
 	public List<Dispositivo> listarDiposnibles() throws MyDaoExeption {
 		
