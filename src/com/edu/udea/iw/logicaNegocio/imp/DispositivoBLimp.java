@@ -52,14 +52,15 @@ public class DispositivoBLimp implements DispositivoBL {
 		}else if(!creador.getRol().getCodigo().equals("ADM")){
 			throw new MyDaoExeption("Para crear un dispositivo debe ser un administrador", null);
 		}
-		
+		System.out.println("tipooooooooooooo" + tipo);
 		Tipo t = new Tipo();
 		t.setCodigo(tipo);
 		
 		Dispositivo dispositivo = new Dispositivo();
-		dispositivo.setCodigo(codigo);
+		//dispositivo.setCodigo(codigo);
 		dispositivo.setDescripcion(descripcion);
 		dispositivo.setUsuarioCrea(creador);
+		dispositivo.setTipo(t);
 		dispositivo.setEliminado(false);
 		dispositivo.setEstado(true);
 		dispositivo.setFechaCrea(new Date());
