@@ -108,5 +108,18 @@ public class DipositivoDaoTestCase {
 			
 		}
 	}
+	
+	@Test
+	public void getPorCodigo(){
+		Dispositivo dispositivo = null;
+		try {
+			dispositivo = dispositivoDao.obtenerPorCodigo(1);
+			assertTrue("micro".equals(dispositivo.getTipo().getCodigo()));
+			
+		} catch (MyDaoExeption e) {
+			// TODO: handle exception
+			fail(e.getMessage());
+		}
+	}
 
 }

@@ -74,6 +74,49 @@ public class DispositivoBLimp implements DispositivoBL {
 	}
 	
 	@Override
+	public void actualizarDatosDispositivo(String usuarioActualiza, int codigo, String descripcion, String tipo)
+			throws MyDaoExeption {
+		if("".equals(usuarioActualiza.trim())){
+			throw new MyDaoExeption("Se debe especificar el usuario que actualiza el dispositivo", null);
+		}
+		
+		Usuario usuario = usuarioDao.obtenerPorCedula(usuarioActualiza);
+		if(usuario == null){
+			throw new MyDaoExeption("El usuario que actualiza no se encontro en la base de datos", null);
+		}
+		if(!"ADM".equals(usuario.getRol().getCodigo())){
+			throw new MyDaoExeption("El usuario que actualiza los datos debe ser un administrador", null);
+		}
+		Dispositivo dispositivo = dispositivoDao.obtenerPorCodigo(codigo);
+		if(dispositivo == null){
+			throw new MyDaoExeption("No se encuentra un dispositivo con ese codigo", null);
+		}
+		if(dispositivo.isEliminado()){
+			throw new MyDaoExeption("Esta tratando de actualizar un dispositivo que ya ha sido eliminado", null);
+		}
+		
+		if(!"".equals(descripcion.trim())){
+			
+			dispositivo.setDescripcion(descripcion);
+		}
+		
+		if(!"".equals(tipo.trim())){
+			
+			Tipo t = new Tipo();
+			t.setCodigo(tipo);
+			dispositivo.setTipo(t);
+		}
+		
+		try {
+			dispositivoDao.actualizar(dispositivo);
+		} catch (MyDaoExeption e) {
+			throw new MyDaoExeption("Error actualizando el dispositivo", null);
+		}
+		
+	}
+	
+	
+	@Override
 	public void actualizarDatos(String usuarioActualiza, Dispositivo dispositivo) throws MyDaoExeption {
 		if("".equals(usuarioActualiza.trim())){
 			throw new MyDaoExeption("Se debe especificar el usuario que actualiza el dispositivo", null);
@@ -222,6 +265,7 @@ public class DispositivoBLimp implements DispositivoBL {
 		}
 		return dispositivos;
 	}
+
 	
 	
 

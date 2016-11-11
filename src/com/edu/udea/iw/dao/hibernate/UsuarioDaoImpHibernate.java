@@ -68,7 +68,7 @@ public class UsuarioDaoImpHibernate implements UsuarioDao {
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
 			session.save(usuario); 
-			//transaction.commit();
+			transaction.commit();
 		} catch (HibernateException	 e) {
 			throw new MyDaoExeption(e);
 		}

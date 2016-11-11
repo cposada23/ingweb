@@ -34,6 +34,18 @@ public interface DispositivoBL {
 	public void actualizarDatos(String usuarioActualiza, Dispositivo dispositivo) throws MyDaoExeption;
 	
 	
+	
+	/**
+	 * Atualiza los datos de un dispositivo 
+	 * @param usuarioActualiza: El usuario que quiere actualizar los datos del dispositivo
+	 * @param codigo: Codigo del dispositivo que se quiere actualizar
+	 * @param descripcion: Descripcion del dispositivo
+	 * @param tipo: Tipo del dispositivo
+	 * @throws MyDaoExeption 
+	 */
+	public void actualizarDatosDispositivo(String usuarioActualiza, int codigo, String descripcion, String tipo) throws MyDaoExeption;
+	
+	
 	/**
 	 * Actualiza la disponibilidad de un dispositivo cuando este es devuelto
 	 * @param usuarioActualiza
