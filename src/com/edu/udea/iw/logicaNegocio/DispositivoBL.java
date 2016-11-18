@@ -80,7 +80,7 @@ public interface DispositivoBL {
 	 * @return lista de dispositivos 
 	 * @throws MyDaoExeption 
 	 */
-	public List<Dispositivo> listarDispositivos(String usuarioBusca) throws MyDaoExeption;
+	public List<Dispositivo> listarDispositivos() throws MyDaoExeption;
 	
 	
 	/**

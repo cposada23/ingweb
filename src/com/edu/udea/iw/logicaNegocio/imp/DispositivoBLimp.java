@@ -236,10 +236,7 @@ public class DispositivoBLimp implements DispositivoBL {
 	}
 	
 	@Override
-	public List<Dispositivo> listarDispositivos(String usuarioBusca) throws MyDaoExeption{
-		if("".equals(usuarioBusca.trim())){
-			throw new MyDaoExeption("El usuario que busca debe de ser especificado", null);
-		}
+	public List<Dispositivo> listarDispositivos() throws MyDaoExeption{
 		
 		List<Dispositivo> dispositivos = null;
 		
