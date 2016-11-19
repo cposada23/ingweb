@@ -103,6 +103,7 @@
 		<property name="usuarioDao" ref="usuarioDao"></property>
 		<property name="dispositivoDao" ref="dispositivoDao"></property>
 		<property name="reservaDao" ref="reservaDao"></property>
+		<property name="prestamoDao" ref="prestamoDao"></property>
 	</bean>
 	
 	<context:component-scan base-package="com.edu.udea.iw.ws"></context:component-scan>

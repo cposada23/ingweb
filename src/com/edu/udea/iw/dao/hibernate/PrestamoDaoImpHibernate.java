@@ -13,6 +13,7 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
 import com.edu.udea.iw.dao.PrestamoDao;
+import com.edu.udea.iw.dto.Dispositivo;
 import com.edu.udea.iw.dto.Prestamo;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
@@ -93,6 +94,24 @@ public class PrestamoDaoImpHibernate implements PrestamoDao {
 		}
 		
 		return prestamos;
+	}
+
+	@Override
+	public List<Prestamo> obtenerPrestamosPorDispositivo(Dispositivo dis) throws MyDaoExeption {
+		Session session = null;
+		List<Prestamo> prestamos = null;
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria = session.createCriteria(Prestamo.class).add(Restrictions.eq("dispositivo", dis));
+			prestamos = criteria.list();
+		} catch (HibernateException e) {
+			throw new MyDaoExeption(e);
+		}
+		
+		return prestamos;
+		
+		
+	
 	}
 	
 }

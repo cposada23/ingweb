@@ -1,5 +1,6 @@
 package com.edu.udea.iw.logicaNegocio;
 
+import java.util.Date;
 import java.util.List;
 
 import com.edu.udea.iw.dto.Reserva;
@@ -17,6 +18,10 @@ public interface ReservaBL {
 	 * @throws MyDaoExeption
 	 */
 	public void realizarReserva(String usuarioReserva, int dispositivo) throws MyDaoExeption;
+	
+	
+	
+	public void realizarReserva2(String usuarioReserva, int dispositivo, Date fechaInicio) throws MyDaoExeption;
 	
 	/**
 	 * Aprobar una reserva segun la logica del negocio

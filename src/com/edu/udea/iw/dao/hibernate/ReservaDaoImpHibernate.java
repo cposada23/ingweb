@@ -10,6 +10,7 @@ import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 
 import com.edu.udea.iw.dao.ReservaDao;
+import com.edu.udea.iw.dto.Dispositivo;
 import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
@@ -85,7 +86,7 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 			session = sessionFactory.openSession();
 			transaction = session.beginTransaction();
 			session.update(reserva);
-			//transaction.commit();
+			transaction.commit();
 		} catch (HibernateException e) {
 			// TODO: handle exception
 			throw new MyDaoExeption(e);
@@ -143,6 +144,23 @@ public class ReservaDaoImpHibernate implements ReservaDao {
 			throw new MyDaoExeption("Reserva no encontrado", null);
 		}
 		return reservas;
+	}
+
+	@Override
+	public List<Reserva> obtenerReservasDeDispositivos(Dispositivo dis) throws MyDaoExeption {
+		Session session = null;
+		List<Reserva> reservas = null;
+		
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria =  session.createCriteria(Reserva.class).add(Restrictions.eq("dispositivo", dis));
+			reservas = criteria.list();
+			
+		} catch (HibernateException  e) {
+			throw new MyDaoExeption("Reserva no encontrado", null);
+		}
+		return reservas;
+	
 	}
 
 

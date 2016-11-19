@@ -8,6 +8,7 @@ package com.edu.udea.iw.dao;
 
 import java.util.List;
 
+import com.edu.udea.iw.dto.Dispositivo;
 import com.edu.udea.iw.dto.Prestamo;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
@@ -43,4 +44,6 @@ public interface PrestamoDao {
 	 * @throws MyDaoExeption
 	 */
 	public List<Prestamo> obtenerPrestamosUsuario(Usuario usuario) throws MyDaoExeption;
+
+	public List<Prestamo> obtenerPrestamosPorDispositivo(Dispositivo dis)throws MyDaoExeption;
 }

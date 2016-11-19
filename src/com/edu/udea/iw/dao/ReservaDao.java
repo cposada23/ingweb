@@ -5,6 +5,7 @@ import java.util.List;
  * @author Andersson Villa
  */
 
+import com.edu.udea.iw.dto.Dispositivo;
 import com.edu.udea.iw.dto.Reserva;
 import com.edu.udea.iw.dto.Usuario;
 import com.edu.udea.iw.exeption.MyDaoExeption;
@@ -67,5 +68,8 @@ public interface ReservaDao {
 	 * @throws MyDaoExeption
 	 */
 	public List<Reserva> ObtenerReservaPorUsuario(Usuario usuario) throws MyDaoExeption;
+	
+	
+	public List<Reserva> obtenerReservasDeDispositivos(Dispositivo dis)throws MyDaoExeption;
 
 }
