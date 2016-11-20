@@ -217,6 +217,7 @@ public class ReservaBLimp implements ReservaBL {
 		reserva.setVence(fechaFin);  
 		
 		
+		
 		try {
 			reservaDao.crearReserva(reserva);
 		} catch (MyDaoExeption e) {
