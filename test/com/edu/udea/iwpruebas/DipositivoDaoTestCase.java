@@ -48,7 +48,7 @@ public class DipositivoDaoTestCase {
 		
 	}
 	
-	@Test
+
 	public void testCrearDispositivo(){
 		Dispositivo dispositivo = new Dispositivo();
 		Usuario usuarioCrea = new Usuario();
